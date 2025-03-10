@@ -63,7 +63,7 @@ def main():
     glClearColor(0, 0, 0, 1)
     
     global number_of_waves
-    number_of_waves = 2
+    number_of_waves = 9
     while not glfw.window_should_close(window):
         glClear(GL_COLOR_BUFFER_BIT)
         glLoadIdentity() # resets transformation matrix
@@ -71,8 +71,15 @@ def main():
         time = glfw.get_time()
         reset_amplitudes()
         
-        generate_wave(time, 0, 0, 50)
-        generate_wave(time, SIZE, SIZE, 50)
+        generate_wave(time, 0, SIZE, 150)
+        generate_wave(time, CENTER, SIZE, 150)
+        generate_wave(time, SIZE, SIZE, 150)
+        generate_wave(time, 0, CENTER, 150)
+        generate_wave(time, CENTER, CENTER, 150)
+        generate_wave(time, SIZE, CENTER, 150)
+        generate_wave(time, 0, 0, 150)
+        generate_wave(time, CENTER, 0, 150)
+        generate_wave(time, SIZE, 0, 150)
         
         draw_wave()
         
